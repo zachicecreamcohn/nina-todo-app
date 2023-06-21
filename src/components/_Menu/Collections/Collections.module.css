@@ -1,0 +1,42 @@
+.container .headerContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.container .headerContainer .icon {
+    cursor: pointer;
+    opacity: .75;
+    transition: transform .3s ease-in-out;
+}
+.icon {
+    margin-right: .75rem;
+}
+
+.icon:hover {
+    opacity: 1;
+}
+
+
+.icon.collapsed {
+    transform: rotate(-90deg);
+}
+
+
+.container {
+    transition: height .3s;
+    overflow: hidden;
+}
+.items {
+    opacity: 1;
+    padding-left: 5px;
+    transition: opacity .3s, height .2s;
+    height: 500px;
+}
+
+.container.collapsed .items{
+    height: 0;
+    opacity: 0;
+}
+

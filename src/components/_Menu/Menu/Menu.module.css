@@ -1,0 +1,48 @@
+.container {
+    background-color: #F6F6F6;
+    height: 100%;
+    width: fit-content;
+    min-width: 20vw;
+    /* max-width: fit-content; */
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 8vh;
+}
+
+.dateCategory {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    opacity: .5;
+    cursor: pointer;
+    margin-left: -2px;
+}
+
+.dateCategory:hover {
+    opacity: 1;
+}
+
+.dateCategory h1 {
+    font-weight: normal;
+    
+}
+
+.dateCategory.active {
+    opacity: 1;
+}
+
+
+
+.lastDateCategory {
+    margin-bottom: 20px;
+}
+
+
+
+
+.icon {
+    margin-right: 0.75rem;
+    font-size: 15px;
+    padding: 2px;
+}

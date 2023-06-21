@@ -1,23 +1,48 @@
 import logo from './logo.svg';
 import './App.css';
+import React, { useEffect, useState } from "react";
 
+import Menu from './components/_Menu/Menu/Menu';
+import Content from './components/_Content/Content/Content';
 function App() {
+
+  const collections = [
+    {
+        text: "Intro to Digital Anthropology",
+        color: "#2A9D8F",
+    },
+    {
+        text: "Russell Young",
+        color: "#E76F51",
+    },
+    {
+        text: "Meshuggah",
+        color: "#E9C46A"
+    }
+]
+
+const [activeCollectionIndex, setActiveCollectionIndex] = useState(null);
+const [activeDateCategory, setActiveDateCategory] = useState(null); // if not null, will be "today" or "upcoming" 
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+
+      <Menu
+        collectionsList = {collections}
+        activeCollectionIndex={activeCollectionIndex}
+        setActiveCollectionIndex={setActiveCollectionIndex}
+        activeDateCategory={activeDateCategory}
+        setActiveDateCategory={setActiveDateCategory}
+      />
+      <Content
+        activeCollectionIndex={activeCollectionIndex}
+        activeDateCategory={activeDateCategory}
+        collectionsList={collections}
+        
+        />
+     
     </div>
   );
 }
