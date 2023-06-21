@@ -1,0 +1,29 @@
+.header {
+    text-align: start;
+}
+
+.colorIcon {
+    height: 15px;
+    width: 15px;
+    border-radius: .25rem;
+}
+
+.details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.input {
+    margin-bottom: 1rem;
+}
+
+.createButton {
+    background-color: #3D74BE;
+}
+
+.createButton:disabled {
+    /* background-color: #3D74BE; */
+    opacity: 0.5;
+    cursor: not-allowed;
+}

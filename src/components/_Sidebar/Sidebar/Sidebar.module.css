@@ -7,8 +7,31 @@
     padding: 10px;
     padding-left: 30px;
     padding-right: 30px;
-    padding-top: 8vh;
+    padding-top: 12vh;
+    transition: all 0.2s ease;
+    overflow: hidden;
 }
+
+.container.collapsed {
+    width: 0;
+    padding-left: 0;
+    padding-right: 0;
+    min-width: 0;
+}
+
+.container .content {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    transition-delay: 0.1s;
+
+}
+
+.container.collapsed .content {
+    opacity: 0;
+    transition-delay: 0s;
+    transition: opacity 0.2s ease;
+}
+
 
 .dateCategory {
     display: flex;

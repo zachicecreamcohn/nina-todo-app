@@ -1,0 +1,23 @@
+.container {
+  position: fixed;
+  top: 35px;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: calc(100% - 35px);
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+}
+
+.popup {
+  position: relative;
+  z-index: 101;
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: .25rem;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
+}

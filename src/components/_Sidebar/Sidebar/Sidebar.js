@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
-import styles from "./Menu.module.css";
+import styles from "./Sidebar.module.css";
 import Collections from "../Collections/Collections";
 import { CalendarEvent, Rocket } from "tabler-icons-react";
 
-function Menu(props) {
+function Sidebar(props) {
   const activeDateCategory = props.activeDateCategory;
     const setActiveDateCategory = props.setActiveDateCategory;
     const activeCollectionIndex = props.activeCollectionIndex;
     const setActiveCollectionIndex = props.setActiveCollectionIndex;
   return (
-    <div className={styles.container}>
-      <div
+    <div className={(props.sidebarCollapsed ?  styles.container + " " + styles.collapsed : styles.container)}>
+      <div className={styles.content}>
+            <div
         className={
           activeDateCategory === "today"
             ? styles.dateCategory + " " + styles.active
@@ -59,8 +60,9 @@ function Menu(props) {
         activeDateCategory={activeDateCategory}
         setActiveDateCategory={setActiveDateCategory}
         />
+        </div>
     </div>
   );
 }
 
-export default Menu;
+export default Sidebar;

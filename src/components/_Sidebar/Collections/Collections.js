@@ -50,7 +50,6 @@ function Collections(props) {
             collections.map((item, index) => {
                 return <Item text={item.text} color={item.color} active={activeCollectionIndex === index}
                 onClick={() => {
-                    console.log("clicked on menu item", index);
                     setActiveCollectionIndex(index);
                 }}/>
             })
