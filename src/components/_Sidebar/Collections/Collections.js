@@ -50,7 +50,11 @@ function Collections(props) {
             collections.map((item, index) => {
                 return <Item text={item.text} color={item.color} active={activeCollectionIndex === index}
                 onClick={() => {
+                    if (activeCollectionIndex === index) {
+                        setActiveCollectionIndex(null);
+                    } else {
                     setActiveCollectionIndex(index);
+                    }
                 }}/>
             })
         }

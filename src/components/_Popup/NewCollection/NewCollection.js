@@ -14,8 +14,11 @@ import Button from '@mui/material/Button';
 
 
 function NewCollection(props) {
+    const setShowNewCollectionPopup = props.setShowNewCollectionPopup;
+
+
     const [newCollectionName, setNewCollectionName] = useState("");
-  const [color, setColor] = useState("");
+
 
   const colorOptions = [
     { value: "264653", label: "Navy" },
@@ -27,11 +30,19 @@ function NewCollection(props) {
     { value: "151515", label: "Black" },
   ];
 
+  const defaultColor = colorOptions[0].value;
+  const [color, setColor] = useState(defaultColor);
+
+
   const handleChange = (event) => {
     setColor(event.target.value);
   };
+
+  function closePopup() {
+    setShowNewCollectionPopup(false);
+  }
   return (
-    <BasePopup>
+    <BasePopup closePopup={closePopup}>
       <div className={styles.container}>
         {/* <h1 className={styles.header}>Create A New Collection</h1> */}
         <TextField

@@ -51,8 +51,6 @@ const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
         />
 
 
-        {/* For testing purposes */}
-       <NewCollection/>
      
     </div>
   );
