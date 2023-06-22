@@ -10,8 +10,8 @@ function Collections(props) {
     const collections = props.collectionsList;
     const defaultMenuIndex = 0;
 
-    const activeCollectionIndex = props.activeCollectionIndex;
-    const setActiveCollectionIndex = props.setActiveCollectionIndex;
+    const activeCollectionId = props.activeCollectionId;
+    const setActiveCollectionId = props.setActiveCollectionId;
     const [collapsed, setCollapsed] = useState(false);
 
     const activeDateCategory = props.activeDateCategory;
@@ -19,16 +19,16 @@ function Collections(props) {
 
     useEffect(() => {
         if (activeDateCategory !== null) {
-            setActiveCollectionIndex(null);
+            setActiveCollectionId(null);
         }
     }, [activeDateCategory])
 
 
     useEffect(() => {
-        if (activeCollectionIndex !== null) {
+        if (activeCollectionId !== null) {
             setActiveDateCategory(null);
         }
-    }, [activeCollectionIndex])
+    }, [activeCollectionId])
 
 
     return (
@@ -46,17 +46,31 @@ function Collections(props) {
 
         <div className={styles.items}>
         {
-            
+
+            collections &&
+            // for each collection, render an Item component
             collections.map((item, index) => {
-                return <Item text={item.text} color={item.color} active={activeCollectionIndex === index}
+                return <Item text={item.name} color={item.color} active={activeCollectionId === item.id} key={index}
                 onClick={() => {
-                    if (activeCollectionIndex === index) {
-                        setActiveCollectionIndex(null);
+                    if (activeCollectionId === item.id) {
+                        setActiveCollectionId(null);
                     } else {
-                    setActiveCollectionIndex(index);
+                    setActiveCollectionId(item.id);
                     }
                 }}/>
             })
+            
+
+            // collections.map((item, index) => {
+            //     return <Item text={item.name} color={item.color} active={activeCollectionId === item.id}
+            //     onClick={() => {
+            //         if (activeCollectionId === item.id) {
+            //             setActiveCollectionId(null);
+            //         } else {
+            //         setActiveCollectionId(item.id);
+            //         }
+            //     }}/>
+            // })
         }
         </div>
         </div>

@@ -1,6 +1,7 @@
 const path = require('path');
 const { app, BrowserWindow, ipcMain } = require('electron');
 const isDev = require('electron-is-dev');
+const handleCollectionsIPC = require('./backend/collections');
 
 function createWindow() {
   const win = new BrowserWindow({
@@ -31,6 +32,7 @@ function createWindow() {
 
 app.whenReady().then(() => {
   createWindow();
+  handleCollectionsIPC();
 
   ipcMain.handle('isFullScreen', (event) => {
     const currentWindow = BrowserWindow.getFocusedWindow();

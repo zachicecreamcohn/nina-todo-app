@@ -2,3 +2,7 @@
     padding-top: 12vh;
     padding-left: 50px;
 }
+
+.container h1 {
+    font-size: 1.5rem;
+}

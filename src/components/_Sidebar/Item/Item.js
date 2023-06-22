@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Item.module.css";
 
 function Item(props) {
-  const color = props.color || "#2A9D8F";
+  const color = '#' +props.color || "#2A9D8F";
 
   return (
 

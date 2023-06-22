@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    opacity: 0.5 !important;
     cursor: pointer;
 }
 
@@ -12,6 +11,7 @@
     width: 10px;
     margin-right: 1.5rem;
     transition: width .2s ease-in-out;
+    opacity: 1;
 }
 
 .container .text {
@@ -19,13 +19,14 @@
     font-size: 1.05rem;
     margin-bottom: .8rem;
     margin-top: .8rem;
+    opacity: .5;
 }
 
-.container:hover {
+.container:hover .text {
     opacity: 1 !important;
 }
 
-.container.active {
+.container.active .text {
     opacity: 1 !important;
 }
 

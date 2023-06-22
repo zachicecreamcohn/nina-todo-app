@@ -13,7 +13,12 @@ import Box from "@mui/material/Box";
 import Button from '@mui/material/Button';
 
 
+
+
 function NewCollection(props) {
+
+
+
     const setShowNewCollectionPopup = props.setShowNewCollectionPopup;
 
 
@@ -41,6 +46,22 @@ function NewCollection(props) {
   function closePopup() {
     setShowNewCollectionPopup(false);
   }
+
+
+  async function createCollection(name, color) {
+    const newCollection = await window.api.invoke("new-collection", {
+      name: name,
+      color: color,
+    });
+
+    props.setCollectionsList((collectionsList) => [
+      ...collectionsList,
+      newCollection,
+    ]);
+    
+    closePopup();
+  }
+
   return (
     <BasePopup closePopup={closePopup}>
       <div className={styles.container}>
@@ -102,6 +123,7 @@ function NewCollection(props) {
             }
         }
             className={styles.createButton}
+            onClick={() => createCollection(newCollectionName, color)}
           >Create</Button>
 
         </div>

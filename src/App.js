@@ -5,7 +5,6 @@ import React, { useEffect, useState } from "react";
 import Sidebar from './components/_Sidebar/Sidebar/Sidebar';
 import Content from './components/_Content/Content/Content';
 import Titlebar from './components/_Titlebar/Titlebar/Titlebar';
-import NewCollection from './components/_Popup/NewCollection/NewCollection';
 function App() {
 
   const collections = [
@@ -23,30 +22,47 @@ function App() {
     }
 ]
 
-const [activeCollectionIndex, setActiveCollectionIndex] = useState(null);
+const [activeCollectionId, setActiveCollectionId] = useState(null);
 const [activeDateCategory, setActiveDateCategory] = useState(null); // if not null, will be "today" or "upcoming" 
 const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+const [collectionsList, setCollectionsList] = useState();
+
+useEffect(() => {
+  async function getCollections() {
+    const collections = await window.api.invoke("get-collections-list");
+    console.log(collections);
+    setCollectionsList(collections);
+  }
+
+  getCollections();
+}, [])
+
+
 
   return (
     <div className="App">
       <Titlebar
         sidebarCollapsed={sidebarCollapsed}
         setSidebarCollapsed={setSidebarCollapsed}
+
+        // necessary for appending new collections when they are created
+        collectionsList={collectionsList}
+        setCollectionsList={setCollectionsList}
       />
 
 
       <Sidebar
-        collectionsList = {collections}
-        activeCollectionIndex={activeCollectionIndex}
-        setActiveCollectionIndex={setActiveCollectionIndex}
+        collectionsList = {collectionsList}
+        activeCollectionId={activeCollectionId}
+        setActiveCollectionId={setActiveCollectionId}
         activeDateCategory={activeDateCategory}
         setActiveDateCategory={setActiveDateCategory}
         sidebarCollapsed={sidebarCollapsed}
       />
       <Content
-        activeCollectionIndex={activeCollectionIndex}
+        activeCollectionId={activeCollectionId}
         activeDateCategory={activeDateCategory}
-        collectionsList={collections}
+        collectionsList={collectionsList}
         
         />
 

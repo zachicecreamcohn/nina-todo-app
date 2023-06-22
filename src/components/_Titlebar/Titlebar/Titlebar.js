@@ -12,7 +12,7 @@ function Titlebar(props) {
     let intervalId;
     async function fetchFullScreenState() {
       const isFullScreen =
-        (await window.electron.invoke("isFullScreen")) || false;
+        (await window.api.invoke("isFullScreen")) || false;
       setIsFullScreen(isFullScreen);
     }
 
@@ -81,6 +81,8 @@ function Titlebar(props) {
     {showNewCollectionPopup ? (
       <NewCollection
         setShowNewCollectionPopup={setShowNewCollectionPopup}
+        collectionsList={props.collectionsList}
+        setCollectionsList={props.setCollectionsList}
   />
     ) : null}
     </div>

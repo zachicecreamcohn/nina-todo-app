@@ -6,8 +6,8 @@ import { CalendarEvent, Rocket } from "tabler-icons-react";
 function Sidebar(props) {
   const activeDateCategory = props.activeDateCategory;
     const setActiveDateCategory = props.setActiveDateCategory;
-    const activeCollectionIndex = props.activeCollectionIndex;
-    const setActiveCollectionIndex = props.setActiveCollectionIndex;
+    const activeCollectionId = props.activeCollectionId
+    const setActiveCollectionId = props.setActiveCollectionId;
   return (
     <div className={(props.sidebarCollapsed ?  styles.container + " " + styles.collapsed : styles.container)}>
       <div className={styles.content}>
@@ -55,8 +55,8 @@ function Sidebar(props) {
       </div>
       <Collections
         collectionsList={props.collectionsList}
-        activeCollectionIndex={activeCollectionIndex}
-        setActiveCollectionIndex={setActiveCollectionIndex}
+        activeCollectionId={activeCollectionId}
+        setActiveCollectionId={setActiveCollectionId}
         activeDateCategory={activeDateCategory}
         setActiveDateCategory={setActiveDateCategory}
         />
